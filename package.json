@@ -20,6 +20,11 @@
     "typescript": "^2.6.2"
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json"
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",

@@ -38,6 +38,6 @@ describe('Injector', () => {
 
     expect(() => {
       Injector.get<Object>('NonExistentComponent')
-    }).toThrow(ComponentNotFoundError);
+    }).toThrowError(ComponentNotFoundError);
   });
 });

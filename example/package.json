@@ -6,6 +6,6 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "koalats": "file:.."
+    "koalats": "^0.0.1"
   }
 }
