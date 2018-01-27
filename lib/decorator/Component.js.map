@@ -1,0 +1,1 @@
+{"version":3,"file":"Component.js","sourceRoot":"","sources":["../../src/decorator/Component.ts"],"names":[],"mappings":"AAAA,OAAO,kBAAkB,MAAM,uBAAuB,CAAC;AAEvD,IAAM,SAAS,GAAG,UAAC,EAAsE;QAApE,cAAI,EAAE,oBAAiB,EAAjB,sCAAiB;IAC1C,MAAM,CAAC,UAAC,MAAW;QACjB,kBAAkB,CAAC,WAAW,EAAE,CAAC,iBAAiB,CAAC,IAAI,EAAE,MAAM,EAAE,YAAY,CAAC,CAAC;IACjF,CAAC,CAAA;AACH,CAAC,CAAA;AAED,eAAe,SAAS,CAAC"}

@@ -1,0 +1,43 @@
+{
+  "name": "koalats",
+  "version": "0.0.1",
+  "main": "./lib/index.umd.js",
+  "module": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "author": "Kacper Wiszczuk <kacperwiszczuk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && rollup -c rollup.config.js",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.0",
+    "jest": "^22.1.4",
+    "rollup": "^0.55.1",
+    "rollup-plugin-typescript": "^0.8.1",
+    "ts-jest": "^22.0.1",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.test.(ts|tsx|js)"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/"
+    ]
+  }
+}

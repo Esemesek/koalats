@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "rootDir": "src",
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "noLib": true,
+    "sourceMap": true,
+    "strict": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  },
+  "files": [
+    "node_modules/typescript/lib/lib.es2016.d.ts",
+    "src/index.ts"
+  ]
+}
