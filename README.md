@@ -16,7 +16,6 @@ yarn add koalats
 
 ## How to use?
 
-Declare your @Components. They will be stored in container.
 ```javascript
 import Koalats from 'koalats';
 
@@ -28,6 +27,9 @@ import Koalats from 'koalats';
   name: 'SomeComponentName',
 })
 class SomeComponent {
+  public sayHello(): string {
+    return 'Hello';
+  }
 }
 
 /*
@@ -41,15 +43,18 @@ class SomeComponent {
 class AnotherComponent {
   constructor(private someComponent: SomeComponent) {
   }
+
+  public sayHelloWorld(): string {
+    return this.someComponent.sayHello() + ' World!';
+  }
 }
 
 /*
   Start your container.
-  In this step all instances of components are created in container
-  and their dependecies are resolved.
+  In this step all instances of components are created in container and their dependecies are resolved.
 */
 Koalats.startContainer();
 
 // Get component from container
-Koalats.Injector.get<AnotherComponent>('AnotherComponent').sayHelloWorld()
+Koalats.Injector.get<AnotherComponent>('AnotherComponent').sayHelloWorld();
 ```
