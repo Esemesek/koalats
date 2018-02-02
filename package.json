@@ -44,5 +44,8 @@
       "/node_modules/",
       "/__tests__/"
     ]
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.12"
   }
 }
