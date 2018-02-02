@@ -1,4 +1,4 @@
-import { ConstructorMap } from 'ComponentContainer';
+import { ConstructorMap } from 'service/IoCService';
 
 const basic: ConstructorMap = {
   componentA: {

@@ -1,6 +1,6 @@
-import CircularDependencyError from './error/CircularDependencyError';
-import ComponentAlreadyExistError from './error/ComponentAlreadyExistError';
-import ComponentNotFoundError from './error/ComponentNotFoundError';
+import CircularDependencyError from '../error/CircularDependencyError';
+import ComponentAlreadyExistError from '../error/ComponentAlreadyExistError';
+import ComponentNotFoundError from '../error/ComponentNotFoundError';
 
 interface ComponentMap {
   [name: string]: Object;
@@ -13,16 +13,16 @@ export interface ConstructorMap {
   }
 }
 
-export default class ComponentContainer {
-  private static instance = new ComponentContainer();
+export default class IoCService {
+  private static instance = new IoCService();
   private registeredComponents: ConstructorMap = {};
   private components: ComponentMap = {};
 
   constructor() {
-    return ComponentContainer.instance;
+    return IoCService.instance;
   }
 
-  public static getInstance = (): ComponentContainer => ComponentContainer.instance;
+  public static getInstance = (): IoCService => IoCService.instance;
 
   public startContainer = () => {
     if (this.areDepsCyclic()) {

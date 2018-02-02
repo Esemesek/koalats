@@ -1,11 +1,11 @@
-import ComponentContainer from '../ComponentContainer';
+import IoCService from '../service/IoCService';
 
 const Bootstrap = (target: any) => {
   if (target.initialize instanceof Function) {
     target.initialize();
   }
 
-  ComponentContainer.getInstance().startContainer();
+  IoCService.getInstance().startContainer();
 
   target.main();
 }

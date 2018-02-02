@@ -1,4 +1,4 @@
-import Injector from './Injector';
+import InjectorService from './service/InjectorService';
 declare const _default: {
     Bootstrap: (target: any) => void;
     Component: ({ name, dependencies }: {
@@ -6,6 +6,6 @@ declare const _default: {
         dependencies?: string[] | undefined;
     }) => (target: any) => void;
     Inject: (name: string) => (target: any, key: string) => void;
-    Injector: typeof Injector;
+    InjectorService: typeof InjectorService;
 };
 export default _default;

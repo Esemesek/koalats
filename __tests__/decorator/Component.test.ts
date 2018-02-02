@@ -1,8 +1,8 @@
 import Component from 'decorator/Component';
-import ComponentContainer from 'ComponentContainer';
+import IoCService from 'service/IoCService';
 
 describe('Component decorator', () => {
-  const container = ComponentContainer.getInstance();
+  const container = IoCService.getInstance();
   const containerMock = jest.fn();
   let originalRegister = container.registerComponent;
 

@@ -1,5 +1,5 @@
 import Bootstrap from 'decorator/Bootstrap';
-import ComponentContainer from 'ComponentContainer';
+import IoCService from 'service/IoCService';
 
 let mockedInit = jest.fn();
 let mockedMain = jest.fn();
@@ -22,7 +22,7 @@ class WithInit {
 }
 
 describe('Bootstrap decorator', () => {
-  const container = ComponentContainer.getInstance();
+  const container = IoCService.getInstance();
   let originalStart = container.startContainer;
   let mockedStart = jest.fn();
 

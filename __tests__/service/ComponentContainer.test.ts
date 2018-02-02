@@ -1,21 +1,21 @@
-import ComponentContainer, { ConstructorMap } from 'ComponentContainer';
+import IoCService, { ConstructorMap } from 'service/IoCService';
 import CircularDependencyError from 'error/CircularDependencyError';
 import ComponentAlreadyExistError from 'error/ComponentAlreadyExistError';
 import ComponentNotFoundError from 'error/ComponentNotFoundError';
 import fixture from './registeredComponents.fixure';
 
-describe('ComponentContainer', () => {
+describe('IoCService', () => {
   afterEach(() => {
-    ComponentContainer.getInstance()['registeredComponents'] = {};
-    ComponentContainer.getInstance()['components'] = {};
+    IoCService.getInstance()['registeredComponents'] = {};
+    IoCService.getInstance()['components'] = {};
   });
 
   test('should be singleton', () => {
-    expect(new ComponentContainer()).toBe(new ComponentContainer());
+    expect(new IoCService()).toBe(new IoCService());
   });
 
   test('should register component and get it', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container.registerComponent('exampleComponent', Object, []);
     container.startContainer();
 
@@ -23,7 +23,7 @@ describe('ComponentContainer', () => {
   });
 
   test('should not register component with the same name twice', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container.registerComponent('exampleComponent', Object, []);
     expect(() => {
       container.registerComponent('exampleComponent', Object, []);
@@ -31,14 +31,14 @@ describe('ComponentContainer', () => {
   });
 
   test('should not get non existent component', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     expect(() => {
       container.getComponent('nonExistentComponent');
     }).toThrow(ComponentNotFoundError);
   });
 
   test('should work for single component', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.basic;
 
     container.startContainer();
@@ -47,7 +47,7 @@ describe('ComponentContainer', () => {
   });
 
   test('should work for two components', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.complex1;
 
     container.startContainer();
@@ -57,7 +57,7 @@ describe('ComponentContainer', () => {
   });
 
   test('should work for multiple components', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.complex2;
 
     container.startContainer();
@@ -68,28 +68,28 @@ describe('ComponentContainer', () => {
   });
 
   test('should not work for circular self dependency', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.selfDep;
 
     expect(container.startContainer).toThrow(CircularDependencyError);
   });
 
   test('should not work for direct circular dependency', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.cycleDep1;
 
     expect(container.startContainer).toThrow(CircularDependencyError);
   });
 
   test('should not work for indirect circular dependency', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.cycleDep2;
 
     expect(container.startContainer).toThrow(CircularDependencyError);
   });
 
   test('should not work for unresolved dependencies', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
     container['registeredComponents'] = fixture.depNotFound;
 
     expect(container.startContainer).toThrow(ComponentNotFoundError);

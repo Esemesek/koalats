@@ -1,8 +1,8 @@
-import ComponentContainer from '../ComponentContainer';
+import IoCService from '../service/IoCService';
 
 const Component = ({ name, dependencies = [] }: { name: string, dependencies?: string[] }) => {
   return (target: any) => {
-    ComponentContainer.getInstance().registerComponent(name, target, dependencies);
+    IoCService.getInstance().registerComponent(name, target, dependencies);
   }
 }
 

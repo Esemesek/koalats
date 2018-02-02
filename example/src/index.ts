@@ -11,7 +11,7 @@ class SimpleApplication {
   }
 
   static main() {
-    const helloWorld = Koalats.Injector.get<HelloWorld>('HelloWorld');
+    const helloWorld = Koalats.InjectorService.get<HelloWorld>('HelloWorld');
     helloWorld.sayHelloWorld();
   }
 }

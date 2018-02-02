@@ -1,5 +1,5 @@
-import Injector from 'Injector';
-import ComponentContainer from 'ComponentContainer';
+import InjectorService from 'service/InjectorService';
+import IoCService from 'service/IoCService';
 import ComponentNotFoundError from 'error/ComponentNotFoundError';
 
 const PROP_VALUE = 'someValue';
@@ -12,19 +12,19 @@ class TestComponent {
   }
 }
 
-describe('Injector', () => {
+describe('InjectorService', () => {
   afterEach(() => {
-    ComponentContainer.getInstance()['registeredComponents'] = {};
-    ComponentContainer.getInstance()['components'] = {};
+    IoCService.getInstance()['registeredComponents'] = {};
+    IoCService.getInstance()['components'] = {};
   });
 
   test('should inject components from container', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
 
     container.registerComponent('SomeComponent', TestComponent, []);
     container.startContainer();
 
-    const component = Injector.get<TestComponent>('SomeComponent');
+    const component = InjectorService.get<TestComponent>('SomeComponent');
 
     expect(component).toBeInstanceOf(TestComponent);
     expect(component.property).toEqual(PROP_VALUE);
@@ -32,12 +32,12 @@ describe('Injector', () => {
   });
 
   test('should not inject non-existent component', () => {
-    const container = ComponentContainer.getInstance();
+    const container = IoCService.getInstance();
 
     container.startContainer();
 
     expect(() => {
-      Injector.get<Object>('NonExistentComponent')
+      InjectorService.get<Object>('NonExistentComponent')
     }).toThrowError(ComponentNotFoundError);
   });
 });

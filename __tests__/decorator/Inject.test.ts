@@ -1,5 +1,5 @@
 import Inject from 'decorator/Inject';
-import ComponentContainer from 'ComponentContainer';
+import IoCService from 'service/IoCService';
 
 class TestClass {
   @Inject('prop')
@@ -7,7 +7,7 @@ class TestClass {
 }
 
 describe('Inject decorator', () => {
-  let container = ComponentContainer.getInstance();
+  let container = IoCService.getInstance();
   let originalFn = container.getComponent;
   let mockFn = jest.fn();
 
