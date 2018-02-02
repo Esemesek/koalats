@@ -9,7 +9,7 @@ export default class ComponentContainer {
     private registeredComponents;
     private components;
     constructor();
-    static getInstance: () => ComponentContainer;
+    static getInstance: () => default;
     startContainer: () => void;
     registerComponent: (name: string, componentConstructor: any, dependencies: string[]) => void;
     getComponent: (name: string) => any;

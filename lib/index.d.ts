@@ -1,7 +1,7 @@
 import Injector from './Injector';
 declare const _default: {
     Bootstrap: (target: any) => void;
-    Component: ({name, dependencies}: {
+    Component: ({ name, dependencies }: {
         name: string;
         dependencies?: string[] | undefined;
     }) => (target: any) => void;

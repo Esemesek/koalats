@@ -6,7 +6,7 @@
     "start": "tsc && node build"
   },
   "devDependencies": {
-    "typescript": "^2.6.2"
+    "typescript": "^2.7.1"
   },
   "dependencies": {
     "koalats": "file:.."
